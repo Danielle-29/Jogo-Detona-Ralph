@@ -10,7 +10,7 @@ const state = {
         gameVelocity: 1000,
         hitPosition: 0,
         result: 0,
-        curretTime: 10,
+        curretTime: 50,
         countLive: 3,
     },
     actions: {
@@ -28,7 +28,7 @@ function countDown(){
         clearInterval(state.actions.timerId);
         playSound("gameover");
 
-        if (state.values.result >= 10) {
+        if (state.values.result >= 30) {
             alert("Parabéns! Você fez " + state.values.result + " pontos.");
             resetGame();
         } else {
@@ -80,7 +80,7 @@ function addListenerHitBox() {
 }
 
 function resetRound() {
-    state.values.curretTime = 10;
+    state.values.curretTime = 50;
     state.view.timeLeft.textContent = state.values.curretTime;
     state.actions.countDownTimerId = setInterval(countDown, 1000);
     moveEnemy();
